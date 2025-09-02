@@ -13,6 +13,6 @@ services:
       XUI_ENABLE_FAIL2BAN: "true"
     tty: true
     ports:
-      - "80-10000:80-10000"
-      - "80-10000:80-10000/udp"
+      - "100-10000:100-10000"
+      - "100-10000:100-10000/udp"
     restart: unless-stopped
