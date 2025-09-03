@@ -11,6 +11,7 @@ services:
     environment:
       XRAY_VMESS_AEAD_FORCED: "false"
       XUI_ENABLE_FAIL2BAN: "true"
+      XUI_API_KEY: "4f8b2a16-2b3c-4c79-8f6b-9d2f7a1b5c3e"
     tty: true
     network_mode: host
     restart: unless-stopped

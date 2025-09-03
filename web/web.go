@@ -191,6 +191,9 @@ func (s *Server) initRouter() (*gin.Engine, error) {
 		}
 	})
 
+	// Optional API key auth for programmatic access; enabled when XUI_API_KEY is set
+	engine.Use(middleware.ApiKeyAuthMiddleware())
+
 	// init i18n
 	err = locale.InitLocalizer(i18nFS, &s.settingService)
 	if err != nil {
