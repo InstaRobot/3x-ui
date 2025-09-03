@@ -4,10 +4,11 @@ import (
 	"os"
 	"strings"
 
-	"github.com/gin-contrib/sessions"
-	"github.com/gin-gonic/gin"
 	"x-ui/web/service"
 	"x-ui/web/session"
+
+	"github.com/gin-contrib/sessions"
+	"github.com/gin-gonic/gin"
 )
 
 // ApiKeyAuthMiddleware authorizes API requests using an API key without changing existing session-based auth.
@@ -70,5 +71,3 @@ func ApiKeyAuthMiddleware() gin.HandlerFunc {
 		c.Next()
 	}
 }
-
-
