@@ -266,6 +266,10 @@ func (s *Server) initRouter() (*gin.Engine, error) {
 	s.panel = controller.NewXUIController(g)
 	s.api = controller.NewAPIController(g)
 
+	// Register Public API without '/panel' prefix (normalize basePath)
+	trimmedBase := strings.TrimRight(basePath, "/")
+	controller.NewPublicAPIController(engine.Group(trimmedBase))
+
 	// Chrome DevTools endpoint for debugging web apps
 	engine.GET("/.well-known/appspecific/com.chrome.devtools.json", func(c *gin.Context) {
 		c.JSON(http.StatusOK, gin.H{})
